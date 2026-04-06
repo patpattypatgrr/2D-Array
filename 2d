@@ -1,0 +1,55 @@
+package departmental;
+public class Exam {
+
+	public static void main (String [] args) {
+
+int num[][] = { 
+				{ 120, 250, 789, 7 }, 
+				{ 58, 79, 31, 87 }, 
+				{ 8, 1, 2, 3 }, 
+				{ 99, 98, 97, 96 }
+				};
+
+		System.out.println("First Array:");
+		System.out.println();
+		
+		for (int i = 0; i < num.length; i++) {
+			for (int j = 0; j < num[i].length; j++) {
+				System.out.print(num[i][j] + "\t");
+			}
+			System.out.println();
+		}
+
+		for (int i = 0; i < num.length; i++) {
+			for (int j = 0; j < num[i].length; j++) {
+				if (num[i][j] == 1) {
+					System.out.println("\nNumber 1 is found at indices: [" + i + "][" + j + "]");
+
+					num[i][j] = 50;
+				}
+			}
+		}
+
+		System.out.println("\nNumber 1 is now changed to Number 50.");
+		System.out.println("\nUpdated Array: \n");
+		
+		for (int i = 0; i < num.length; i++) {
+			for (int j = 0; j < num[i].length; j++) {
+				System.out.print(num[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		for (int j = 0; j < num[1].length; j++) {
+			num[1][j] = 0;
+		}
+
+		System.out.println("\nRow 2 elements are now changed to 0's");
+		System.out.println("\nUpdated Array: \n");
+		for (int i = 0; i < num.length; i++) {
+			for (int j = 0; j < num[i].length; j++) {
+				System.out.print(num[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+}
