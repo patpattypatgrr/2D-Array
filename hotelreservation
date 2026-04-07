@@ -1,0 +1,76 @@
+package hotelreservation2d;
+import java.util.*;
+public class Hotel {
+	public static void main (String[] args) {
+		Scanner scan = new Scanner (System.in);
+		
+		
+		int hotel[][] = new int [7][5];
+		
+		int choice;
+		
+		while (true) {
+			System.out.println("\n=== HOTEL RESERVATION SYSTEM ===");
+			System.out.println("\n1. View Rooms \n2. Check in \n3. Check out \n4. Exit");
+			System.out.println("\nEnter choice: ");
+			choice = scan.nextInt();
+		
+			 if (choice == 1) {
+			  for (int i = 0; i < hotel.length; i++) {
+                  System.out.print("Floor " + (i + 1) + ": ");
+                  for (int j = 0; j < hotel[i].length; j++) {
+                      System.out.print("[" + hotel[i][j] + "]");
+                  }
+                  System.out.println();
+              }
+			  
+          } else if (choice == 2) {
+        	  	System.out.println("Enter floor (1-7): ");
+        	  int floor = scan.nextInt();
+        	  
+        	  	System.out.println("Enter room (1-5): ");
+        	  int room = scan.nextInt();
+        	  
+        	 floor--;
+        	 room--;
+
+             if (hotel[floor][room] == 0) {
+                 hotel[floor][room] = 1;
+                 System.out.println("Check-in successful!");
+             } else {
+            	 System.out.println("Room already occupied!");
+             	}
+         
+ 
+          	} else if (choice == 3) {
+        	  System.out.println("Enter floor (1-7): ");
+        	  int floor = scan.nextInt();
+        	  
+        	  System.out.println("Enter room (1-5): ");
+        	  int room = scan.nextInt();
+          
+        	 floor--;
+        	 room--;
+        	 
+        	 if (hotel[floor][room] == 1) {
+                 hotel[floor][room] = 0;
+                 System.out.println("Check-out successful!");
+             } else {
+            	 System.out.println("Room already empty!");
+             			} 
+          							}
+        	 else if (choice == 4) {
+                  System.out.println("Exiting program...");
+                  break;
+              						}	
+
+              else {
+                  System.out.println("Invalid choice!");
+              		}
+          			}
+          scan.close();
+	}
+	}
+
+	
+
