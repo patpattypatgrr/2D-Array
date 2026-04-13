@@ -1,0 +1,95 @@
+import javax.swing.*;
+public class pat {
+    public static void main (String [] args){
+  int hotel[][] = new int[7][5];
+
+        JOptionPane.showMessageDialog(null, "Welcome to Hotel Reservation System");
+
+        while (true) {
+            String input = JOptionPane.showInputDialog(
+                    "1. View Rooms\n" +
+                    "2. Check In\n" +
+                    "3. Check Out\n" +
+                    "4. Exit");
+
+            if (input == null) {
+                break;
+            }
+            int choice = Integer.parseInt(input);
+
+            if (choice == 1) {
+
+                String output = "";
+
+                for (int i = 6; i >= 0; i--) {
+                    output += "Floor " + (i + 1) + ": ";
+
+                    for (int j = 0; j < 5; j++) {
+                        output += "[" + hotel[i][j] + "]";
+                    }
+
+                    output += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, output);
+            }
+            else if (choice == 2) {
+
+                int floor = Integer.parseInt(
+                        JOptionPane.showInputDialog("Enter floor (1-7):"));
+
+                int room = Integer.parseInt(
+                        JOptionPane.showInputDialog("Enter room (1-5):"));
+
+                floor = floor - 1;
+                room = room - 1;
+
+                if (hotel[floor][room] == 0) {
+
+                    int confirm = JOptionPane.showConfirmDialog(null,
+                            "Confirm check-in?");
+
+                    if (confirm == 0) {
+                        hotel[floor][room] = 1;
+                        JOptionPane.showMessageDialog(null, "Checked in!");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Room already occupied!");
+                }
+            }
+            else if (choice == 3) {
+
+                int floor = Integer.parseInt(
+                        JOptionPane.showInputDialog("Enter floor (1-7):"));
+
+                int room = Integer.parseInt(
+                        JOptionPane.showInputDialog("Enter room (1-5):"));
+
+                floor = floor - 1;
+                room = room - 1;
+
+                if (hotel[floor][room] == 1) {
+
+                    int confirm = JOptionPane.showConfirmDialog(null,
+                            "Confirm check-out?");
+
+                    if (confirm == 0) {
+                        hotel[floor][room] = 0;
+                        JOptionPane.showMessageDialog(null, "Checked out!");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Room already empty!");
+                }
+            } 
+            else if (choice == 4) {
+                JOptionPane.showMessageDialog(null, "Goodbye!");
+                break;
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Invalid choice!");
+            }
+        }
+    }
+}
